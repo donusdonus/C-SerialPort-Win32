@@ -1,0 +1,2 @@
+add_library(SerialPort_Win32 STATIC SerialPort_Win32.cpp)
+target_include_directories(SerialPort_Win32 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
