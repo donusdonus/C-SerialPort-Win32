@@ -8,7 +8,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <control.h>
-
+#include <stdarg.h>
 
 #define __Serial_RX_BUFFER_SIZE 128
 #define __Serial_Path 32
@@ -43,18 +43,21 @@ public:
     SerialPort_Win32();
     ~SerialPort_Win32();
 
-    bool begin(const char *PortName,int Baudrate,int Option);
+    bool begin(const char *PortName,int Baudrate,int Option = SERIAL_8N1);
     //bool begin(const char *PortName,int Baudrate,uint8_t Option);
     bool end();
     int available(void);
-    int peek(void);
     int availableForWrite(void);
     void flush(void);
     size_t write(uint8_t data);
     size_t write(uint8_t *data,size_t size);
-    int read(void);
+
+    /* Maximum Send output 120 char */
+    size_t print(const char* fmt, ...);
     size_t read(uint8_t *data,size_t size);
     int Config(int Baudrate,int Option);
+
+    void SetTimeout(int TimeoutInterval,int TimeoutMultiplier,int TimeoutConstant);
 
 private:
     bool tmp = false;

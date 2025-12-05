@@ -190,8 +190,8 @@ lib/SerialPort_Win32/clean: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir
 # Target rules for target CMakeFiles/app.dir
 
 # All Build rule for target.
-CMakeFiles/app.dir/all: _deps/freertos-build/CMakeFiles/freertos_kernel.dir/all
 CMakeFiles/app.dir/all: _deps/freertos-build/portable/CMakeFiles/freertos_kernel_port.dir/all
+CMakeFiles/app.dir/all: _deps/freertos-build/CMakeFiles/freertos_kernel.dir/all
 CMakeFiles/app.dir/all: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/build

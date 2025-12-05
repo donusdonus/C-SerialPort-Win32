@@ -1,7 +1,10 @@
 
 #include "SerialPort_Win32.h"
 
-bool SerialPort_Win32::begin(const char *PortName, int Baudrate, int Option = SERIAL_8N1)
+SerialPort_Win32::SerialPort_Win32(){}
+SerialPort_Win32::~SerialPort_Win32(){}
+
+bool SerialPort_Win32::begin(const char *PortName, int Baudrate, int Option)
 {
     sprintf(&SerialPath[0], "\\\\.\\%s", PortName);
 
@@ -9,6 +12,7 @@ bool SerialPort_Win32::begin(const char *PortName, int Baudrate, int Option = SE
         reference function link
         https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea
      */
+    
     _SerialPort = CreateFileA(
         SerialPath,
         GENERIC_READ | GENERIC_WRITE,
@@ -127,11 +131,25 @@ int SerialPort_Win32::Config(int Baudrate, int Option)
         return Config(Baudrate, 8, TWOSTOPBITS, ODDPARITY);
         break;
     }
+
+    return  -1;
 }
 
 bool SerialPort_Win32::end()
 {
-    return false;
+    tmp = (_SerialPort == INVALID_HANDLE_VALUE);
+    if(tmp)
+        return false;
+
+    tmp = (_SerialPort == nullptr);
+    if(tmp)
+        return false;
+
+    
+    CloseHandle(_SerialPort);
+    
+
+    return true;
 }
 
 int SerialPort_Win32::available(void)
@@ -141,13 +159,7 @@ int SerialPort_Win32::available(void)
     ClearCommError(_SerialPort, &errors, &comStat);
 
     // comStat.cbInQue = จำนวน byte ที่รออยู่ใน input buffer
-    DWORD availableBytes = comStat.cbInQue;
-    return (int)availableBytes;
-}
-
-int SerialPort_Win32::peek(void)
-{
-    return 0;
+    return comStat.cbInQue;
 }
 
 void SerialPort_Win32::flush(void)
@@ -157,20 +169,54 @@ void SerialPort_Win32::flush(void)
 
 size_t SerialPort_Win32::write(uint8_t data)
 {
-    return 0;
+    DWORD bytesWritten = 0;
+    WriteFile(_SerialPort, &data,1, &bytesWritten, NULL);
+    return bytesWritten;
 }
 
 size_t SerialPort_Win32::write(uint8_t *data, size_t size)
 {
-    return 0;
-}
-
-int SerialPort_Win32::read(void)
-{
-    return 0;
+    DWORD bytesWrite = 0;
+    WriteFile(_SerialPort, data,size, &bytesWrite, NULL);
+    return bytesWrite;
 }
 
 size_t SerialPort_Win32::read(uint8_t *data, size_t size)
 {
-    return 0;
+    DWORD bytesRead = 0;
+    
+    ReadFile(
+                _SerialPort,
+                data,
+                size,
+                &bytesRead, 
+                NULL
+            );
+                  
+        return bytesRead;     
+}
+
+size_t SerialPort_Win32::print(const char* fmt, ...)
+{
+    DWORD bytesRead = 0;
+    char output[120];
+    size_t size = 0;
+    va_list args;
+
+    memset(&output[0],0,120);
+
+    va_start(args,fmt);
+      size = vsprintf(output,fmt,args);
+    va_end(args);
+    
+    return write((uint8_t*)&output[0],size);     
+}
+
+void SerialPort_Win32::SetTimeout(int TimeoutInterval,int TimeoutMultiplier,int TimeoutConstant)
+{
+        _SerialTimeout.ReadIntervalTimeout = TimeoutInterval;
+        _SerialTimeout.ReadTotalTimeoutConstant = TimeoutConstant;
+        _SerialTimeout.ReadTotalTimeoutMultiplier = TimeoutMultiplier;
+
+        SetCommTimeouts(_SerialPort,&_SerialTimeout);
 }
