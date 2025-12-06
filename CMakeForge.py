@@ -47,6 +47,8 @@ int main()
         file.write(tmp)
         file.close()
         
+
+####################### CMAKE ROOT #########################################################
     with open('CmakeLists.txt','w') as file:
         
         tmp = f"""
@@ -59,6 +61,7 @@ project({name})
         
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_C_STANDARD 11)
+set(CMAKE_BUILD_TYPE Debug)
 
 if(MINGW)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m32")
@@ -71,6 +74,13 @@ add_executable(app
 src/main.cpp
 )
 
+#message(STATUS "----------- Root Path Debug ---------------")
+#message(STATUS "Path Project = ${PROJECT_SOURCE_DIR}")
+#message(STATUS "Path CMake = ${CMAKE_CURRENT_SOURCE_DIR}")
+#message(STATUS "Path FreeRTOS = ${freertos_SOURCE_DIR}")
+#message(STATUS "--------------------------------------------")
+
+
 target_link_libraries(app
 PRIVATE
 )
@@ -81,10 +91,7 @@ PRIVATE
         file.write(tmp)
         file.close()
         
-    #with open("README.md", 'w') as file:
-    #    file.write('')
-    #    file.close()
-        
+####################### CMAKE Commmand #########################################################
     with open("cmd/init.bat", 'w') as file:
         tmp = 'cmake -S ../ -B ../build  -G "MinGW Makefiles"'
         file.write(tmp)
@@ -109,7 +116,15 @@ PRIVATE
         tmp = 'build.bat && run.bat'
         file.write(tmp)
         file.close()
-        
+    
+    with open("cmd/build_debug.bat", 'w') as file:
+        tmp = '@echo off\n'
+        tmp += 'del /f /s /q "../build/app.exe"\n'
+        tmp += 'cmake -B build -DCMAKE_BUILD_TYPE=Debug\n'
+        tmp += 'cmake --build ../build --parallel 4'
+        file.write(tmp)
+        file.close()
+
 def lib_v1(name):
         os.mkdir("lib/"+name)
         
@@ -134,7 +149,15 @@ private:
         with open("lib/"+name+"/"+name+".cpp", 'w') as file:
             tmp = f"""
 #include "{name}.h"
-    
+
+{name}::{name}(){{
+
+}}
+
+{name}::~{name}(){{
+
+}}
+
             """
             file.write(tmp)
             file.close()
