@@ -157,4 +157,10 @@ CMakeFiles/app.dir/src/main.cpp.obj: \
  C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/portable.h \
  C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/deprecated_definitions.h \
  C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/portable/MSVC-MingW/portmacro.h \
- C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/mpu_wrappers.h
+ C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/mpu_wrappers.h \
+ C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/task.h \
+ C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/list.h \
+ C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/queue.h \
+ C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/task.h \
+ C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/semphr.h \
+ C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/queue.h

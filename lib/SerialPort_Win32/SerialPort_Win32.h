@@ -2,6 +2,8 @@
 #ifndef __LIB__SERIALPORT_WIN32__H
 #define __LIB__SERIALPORT_WIN32__H
 
+
+
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,6 +11,17 @@
 #include <stdint.h>
 #include <control.h>
 #include <stdarg.h>
+
+#define _INCLUDE_FREERTOS_
+#ifdef _INCLUDE_FREERTOS_
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "semphr.h"
+#include "portmacro.h"
+#define __SERIAL_START_BLOCK__(s,t) if (xSemaphoreTake(s,t)){
+#define __SERIAL_END_BLOCK__(s)  xSemaphoreGive(_Blocking);}  
+#endif
 
 #define __Serial_RX_BUFFER_SIZE 128
 #define __Serial_Path 32
@@ -47,7 +60,6 @@ public:
     //bool begin(const char *PortName,int Baudrate,uint8_t Option);
     bool end();
     int available(void);
-    int availableForWrite(void);
     void flush(void);
     size_t write(uint8_t data);
     size_t write(uint8_t *data,size_t size);
@@ -56,8 +68,9 @@ public:
     size_t print(const char* fmt, ...);
     size_t read(uint8_t *data,size_t size);
     int Config(int Baudrate,int Option);
-
     void SetTimeout(int TimeoutInterval,int TimeoutMultiplier,int TimeoutConstant);
+    int GetError() { return GetLastError();} 
+
 
 private:
     bool tmp = false;
@@ -65,11 +78,16 @@ private:
     char SerialPath[__Serial_Path];
 
     int Config(int Baudrate,uint8_t DataBits,uint8_t StopBits,uint8_t ParityBit);
+    bool Ready();
 
     /******* SerialPort Parameter */
     HANDLE _SerialPort = nullptr;
     DCB _SerialOption = {0};
     COMMTIMEOUTS _SerialTimeout = {0};
+
+#ifdef _INCLUDE_FREERTOS_
+    xSemaphoreHandle _Blocking = xSemaphoreCreateMutex();
+#endif
     
 }; 
 #endif // __LIB__SERIALPORT_WIN32__H

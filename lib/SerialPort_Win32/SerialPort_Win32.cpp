@@ -2,16 +2,29 @@
 #include "SerialPort_Win32.h"
 
 SerialPort_Win32::SerialPort_Win32(){}
-SerialPort_Win32::~SerialPort_Win32(){}
+SerialPort_Win32::~SerialPort_Win32(){
+    end();
+}
 
 bool SerialPort_Win32::begin(const char *PortName, int Baudrate, int Option)
 {
+
+    /* SerialPort Object is not release */
+    tmp = Ready();
+    if(tmp == true)
+        return false ; 
+
+    /* Make SerialPort Path */
     sprintf(&SerialPath[0], "\\\\.\\%s", PortName);
 
     /*
         reference function link
         https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea
      */
+    
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_START_BLOCK__(_Blocking,portMAX_DELAY)
+    #endif
     
     _SerialPort = CreateFileA(
         SerialPath,
@@ -21,37 +34,51 @@ bool SerialPort_Win32::begin(const char *PortName, int Baudrate, int Option)
         OPEN_EXISTING,
         0,
         NULL);
+    
+        #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_END_BLOCK__(_Blocking)
+    #endif
 
-    tmp = (_SerialPort == INVALID_HANDLE_VALUE);
-    if (tmp)
+    tmp = Ready();
+    if (tmp == false)
         return false;
 
     tmp = (Config(Baudrate,Option) == 0 );
     if(tmp)
         return false;
+
     return true;
+
 }
 
 int SerialPort_Win32::Config(int Baudrate, uint8_t DataBits, uint8_t StopBits, uint8_t ParityBit)
 {
-    _SerialOption.DCBlength = sizeof(_SerialOption);
+    int ret = 0;
+    tmp = Ready();
+    if(tmp == false)
+        return GetError();
 
+    _SerialOption.DCBlength = sizeof(_SerialOption);
     _SerialOption.BaudRate = Baudrate;
     _SerialOption.ByteSize = DataBits;
     _SerialOption.StopBits = StopBits;
     _SerialOption.Parity = ParityBit;
 
-    tmp = (_SerialPort == nullptr);
-    if (tmp)
-        return -1;
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_START_BLOCK__(_Blocking,portMAX_DELAY)
+    #endif
 
-    tmp = (_SerialPort == INVALID_HANDLE_VALUE);
-    if (tmp == false)
-    {
-        return GetLastError();
-    }
+    ret = SetCommState(_SerialPort, &_SerialOption);
 
-    return SetCommState(_SerialPort, &_SerialOption);
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_END_BLOCK__(_Blocking)
+    #endif
+
+    return ret;
+
+
+
+
 }
 
 int SerialPort_Win32::Config(int Baudrate, int Option)
@@ -137,54 +164,132 @@ int SerialPort_Win32::Config(int Baudrate, int Option)
 
 bool SerialPort_Win32::end()
 {
-    tmp = (_SerialPort == INVALID_HANDLE_VALUE);
-    if(tmp)
-        return false;
 
-    tmp = (_SerialPort == nullptr);
-    if(tmp)
-        return false;
-
+    tmp = Ready();
+    if(tmp == false)
+        return false;    
     
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_START_BLOCK__(_Blocking,portMAX_DELAY)
+    #endif
+
     CloseHandle(_SerialPort);
-    
+
+    _SerialPort = nullptr; 
+
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_END_BLOCK__(_Blocking)
+    #endif
 
     return true;
+
+
 }
 
 int SerialPort_Win32::available(void)
 {
     COMSTAT comStat;
     DWORD errors;
+
+    tmp = Ready();
+    if(tmp == false)
+        return 0;
+
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_START_BLOCK__(_Blocking,portMAX_DELAY)
+    #endif
+
     ClearCommError(_SerialPort, &errors, &comStat);
+
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_END_BLOCK__(_Blocking)
+    #endif
 
     // comStat.cbInQue = จำนวน byte ที่รออยู่ใน input buffer
     return comStat.cbInQue;
+
+
 }
 
 void SerialPort_Win32::flush(void)
 {
+
+
+    tmp = Ready();
+    if(tmp == false)
+        return;
+
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_START_BLOCK__(_Blocking,portMAX_DELAY)
+    #endif
+
      PurgeComm(_SerialPort,PURGE_RXCLEAR);   
+
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_END_BLOCK__(_Blocking)
+    #endif
 }
 
 size_t SerialPort_Win32::write(uint8_t data)
 {
+
+    tmp = Ready();
+    if(tmp == false)
+        return 0;
+
     DWORD bytesWritten = 0;
+
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_START_BLOCK__(_Blocking,portMAX_DELAY)
+    #endif
+
     WriteFile(_SerialPort, &data,1, &bytesWritten, NULL);
+
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_END_BLOCK__(_Blocking);
+    #endif
+
     return bytesWritten;
 }
 
 size_t SerialPort_Win32::write(uint8_t *data, size_t size)
 {
+
+    tmp = Ready();
+    if(tmp == false)
+        return 0;
+
     DWORD bytesWrite = 0;
+
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_START_BLOCK__(_Blocking,portMAX_DELAY)
+    #endif
+
     WriteFile(_SerialPort, data,size, &bytesWrite, NULL);
+
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_END_BLOCK__(_Blocking)
+    #endif
+
     return bytesWrite;
+
+
 }
 
 size_t SerialPort_Win32::read(uint8_t *data, size_t size)
 {
+
+    tmp = Ready();
+    if(tmp == false)
+        return 0;
+
     DWORD bytesRead = 0;
     
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_START_BLOCK__(_Blocking,portMAX_DELAY)
+    #endif
+
+
     ReadFile(
                 _SerialPort,
                 data,
@@ -193,11 +298,20 @@ size_t SerialPort_Win32::read(uint8_t *data, size_t size)
                 NULL
             );
                   
-        return bytesRead;     
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_END_BLOCK__(_Blocking)
+    #endif
+
+    return bytesRead;   
 }
 
 size_t SerialPort_Win32::print(const char* fmt, ...)
 {
+
+    tmp = Ready();
+    if(tmp == false)
+        return 0;
+
     DWORD bytesRead = 0;
     char output[120];
     size_t size = 0;
@@ -209,14 +323,40 @@ size_t SerialPort_Win32::print(const char* fmt, ...)
       size = vsprintf(output,fmt,args);
     va_end(args);
     
-    return write((uint8_t*)&output[0],size);     
+    return write((uint8_t*)&output[0],size);   
+}
+
+bool SerialPort_Win32::Ready()
+{
+    tmp = (_SerialPort == nullptr);
+    if(tmp)
+        return false;
+
+    tmp = (_SerialPort == INVALID_HANDLE_VALUE);
+    if(tmp)
+        return false; 
+
+    return true; 
 }
 
 void SerialPort_Win32::SetTimeout(int TimeoutInterval,int TimeoutMultiplier,int TimeoutConstant)
 {
+
+
+        tmp = Ready();
+        if(tmp == false)
+        return;
+
         _SerialTimeout.ReadIntervalTimeout = TimeoutInterval;
         _SerialTimeout.ReadTotalTimeoutConstant = TimeoutConstant;
         _SerialTimeout.ReadTotalTimeoutMultiplier = TimeoutMultiplier;
 
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_START_BLOCK__(_Blocking,portMAX_DELAY)
+    #endif
         SetCommTimeouts(_SerialPort,&_SerialTimeout);
+    
+    #ifdef _INCLUDE_FREERTOS_
+        __SERIAL_END_BLOCK__(_Blocking)
+    #endif
 }

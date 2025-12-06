@@ -86,17 +86,102 @@ lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/SerialPort_Win32.cpp.s: cma
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SerialPort_Win32.dir/SerialPort_Win32.cpp.s"
 	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\ToonA\C-SerialPort-Win32\lib\SerialPort_Win32\SerialPort_Win32.cpp -o CMakeFiles\SerialPort_Win32.dir\SerialPort_Win32.cpp.s
 
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/flags.make
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/includes_C.rsp
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.obj: _deps/freertos-src/list.c
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\ToonA\C-SerialPort-Win32\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.obj"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.obj -MF CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\list.c.obj.d -o CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\list.c.obj -c C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\list.c
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.i"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\list.c > CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\list.c.i
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.s"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\list.c -o CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\list.c.s
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/flags.make
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/includes_C.rsp
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.obj: _deps/freertos-src/queue.c
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\ToonA\C-SerialPort-Win32\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.obj"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.obj -MF CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\queue.c.obj.d -o CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\queue.c.obj -c C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\queue.c
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.i"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\queue.c > CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\queue.c.i
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.s"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\queue.c -o CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\queue.c.s
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/flags.make
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/includes_C.rsp
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.obj: _deps/freertos-src/tasks.c
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\ToonA\C-SerialPort-Win32\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.obj"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.obj -MF CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\tasks.c.obj.d -o CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\tasks.c.obj -c C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\tasks.c
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.i"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\tasks.c > CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\tasks.c.i
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.s"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\tasks.c -o CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\tasks.c.s
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/flags.make
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/includes_C.rsp
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.obj: _deps/freertos-src/timers.c
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\ToonA\C-SerialPort-Win32\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.obj"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.obj -MF CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\timers.c.obj.d -o CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\timers.c.obj -c C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\timers.c
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.i"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\timers.c > CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\timers.c.i
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.s"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\timers.c -o CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\timers.c.s
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/flags.make
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/includes_C.rsp
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.obj: _deps/freertos-src/portable/MSVC-MingW/port.c
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.obj: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\ToonA\C-SerialPort-Win32\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.obj"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.obj -MF CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\portable\MSVC-MingW\port.c.obj.d -o CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\portable\MSVC-MingW\port.c.obj -c C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\portable\MSVC-MingW\port.c
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.i"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\portable\MSVC-MingW\port.c > CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\portable\MSVC-MingW\port.c.i
+
+lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.s"
+	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && C:\msys64\mingw32\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\ToonA\C-SerialPort-Win32\build\_deps\freertos-src\portable\MSVC-MingW\port.c -o CMakeFiles\SerialPort_Win32.dir\__\__\_deps\freertos-src\portable\MSVC-MingW\port.c.s
+
 # Object files for target SerialPort_Win32
 SerialPort_Win32_OBJECTS = \
-"CMakeFiles/SerialPort_Win32.dir/SerialPort_Win32.cpp.obj"
+"CMakeFiles/SerialPort_Win32.dir/SerialPort_Win32.cpp.obj" \
+"CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.obj" \
+"CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.obj" \
+"CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.obj" \
+"CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.obj" \
+"CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.obj"
 
 # External object files for target SerialPort_Win32
 SerialPort_Win32_EXTERNAL_OBJECTS =
 
 lib/SerialPort_Win32/libSerialPort_Win32.a: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/SerialPort_Win32.cpp.obj
+lib/SerialPort_Win32/libSerialPort_Win32.a: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/list.c.obj
+lib/SerialPort_Win32/libSerialPort_Win32.a: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/queue.c.obj
+lib/SerialPort_Win32/libSerialPort_Win32.a: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/tasks.c.obj
+lib/SerialPort_Win32/libSerialPort_Win32.a: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/timers.c.obj
+lib/SerialPort_Win32/libSerialPort_Win32.a: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/__/__/_deps/freertos-src/portable/MSVC-MingW/port.c.obj
 lib/SerialPort_Win32/libSerialPort_Win32.a: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/build.make
 lib/SerialPort_Win32/libSerialPort_Win32.a: lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\ToonA\C-SerialPort-Win32\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libSerialPort_Win32.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\ToonA\C-SerialPort-Win32\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libSerialPort_Win32.a"
 	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && $(CMAKE_COMMAND) -P CMakeFiles\SerialPort_Win32.dir\cmake_clean_target.cmake
 	cd /d C:\Users\ToonA\C-SerialPort-Win32\build\lib\SerialPort_Win32 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SerialPort_Win32.dir\link.txt --verbose=$(VERBOSE)
 
