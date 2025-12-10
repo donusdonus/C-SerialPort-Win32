@@ -19,8 +19,15 @@
 #include "queue.h"
 #include "semphr.h"
 #include "portmacro.h"
-#define __SERIAL_START_BLOCK__(s,t) if (xSemaphoreTake(s,t)){
-#define __SERIAL_END_BLOCK__(s)  xSemaphoreGive(_Blocking);}  
+//#define __SERIAL_START_BLOCK__(s,t) if (xSemaphoreTake(s,t)){
+//#define __SERIAL_END_BLOCK__(s)  xSemaphoreGive(_Blocking);}  
+
+#define __SERIAL_MAXTIME_BLOCKING__ portMAX_DELAY
+#define __SERIAL_START__BLOCK__(semaphr) if(xSemaphoreTake(semaphr,__SERIAL_MAXTIME_BLOCKING__) == pdTRUE){ 
+#define __SERIAL_END__BLOCK__(semaphr) xSemaphoreGive(semaphr);}
+#else 
+#define __SERIAL_START__BLOCK__
+#define __SERIAL_END__BLOCK__ 
 #endif
 
 #define __Serial_RX_BUFFER_SIZE 128
@@ -86,7 +93,7 @@ private:
     COMMTIMEOUTS _SerialTimeout = {0};
 
 #ifdef _INCLUDE_FREERTOS_
-    xSemaphoreHandle _Blocking = xSemaphoreCreateMutex();
+    xSemaphoreHandle blocking = xSemaphoreCreateMutex();
 #endif
     
 }; 

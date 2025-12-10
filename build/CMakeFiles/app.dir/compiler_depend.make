@@ -392,7 +392,6 @@ CMakeFiles/app.dir/src/main.cpp.obj: C:/Users/ToonA/C-SerialPort-Win32/src/main.
   C:/Users/ToonA/C-SerialPort-Win32/FreeRTOSConfig.h \
   _deps/freertos-src/include/FreeRTOS.h \
   _deps/freertos-src/include/deprecated_definitions.h \
-  _deps/freertos-src/include/event_groups.h \
   _deps/freertos-src/include/list.h \
   _deps/freertos-src/include/mpu_wrappers.h \
   _deps/freertos-src/include/portable.h \
@@ -400,7 +399,6 @@ CMakeFiles/app.dir/src/main.cpp.obj: C:/Users/ToonA/C-SerialPort-Win32/src/main.
   _deps/freertos-src/include/queue.h \
   _deps/freertos-src/include/semphr.h \
   _deps/freertos-src/include/task.h \
-  _deps/freertos-src/include/timers.h \
   _deps/freertos-src/portable/MSVC-MingW/portmacro.h \
   C:/Users/ToonA/C-SerialPort-Win32/lib/SerialPort_Win32/SerialPort_Win32.h \
   C:/msys64/mingw32/include/_bsd_types.h \
