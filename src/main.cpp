@@ -4,6 +4,7 @@
 
 SerialPort_Win32 Serial;
 
+
 char input[120];
 int inputBuffer = 0;
 int bufferRecived = 0;

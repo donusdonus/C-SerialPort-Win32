@@ -2,8 +2,6 @@
 #ifndef __LIB__SERIALPORT_WIN32__H
 #define __LIB__SERIALPORT_WIN32__H
 
-
-
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -76,7 +74,6 @@ public:
     int Config(int Baudrate,int Option);
     void SetTimeout(int TimeoutInterval,int TimeoutMultiplier,int TimeoutConstant);
     int GetError() { return GetLastError();} 
-
 
 private:
     
