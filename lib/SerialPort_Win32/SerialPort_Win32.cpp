@@ -23,6 +23,103 @@ void SerialPort_Win32::Init(){
    
 }
 
+#ifdef _INCLUDE_FREERTOS_
+
+void SerialPort_Win32::onReceive(void (*callback)())
+{
+
+    tmp = (task_interrupt != nullptr);
+    if(tmp)
+        return;
+
+    tmp = Ready();
+    if(!tmp)
+        return;
+
+    __SERIAL_START__BLOCK__(blocking)
+
+    tmp = SetCommMask(_SerialPort,EV_RXCHAR | EV_ERR );
+    if(!tmp)
+        return; 
+
+    _Event_Interrupt.hEvent = CreateEvent(nullptr,TRUE,FALSE,nullptr);
+    _Event_Wait.hEvent = CreateEvent(nullptr,TRUE,FALSE,nullptr);
+   // tmp = (!_Event_Interrupt.hEvent || !_Event_Wait.hEvent);
+   // if(!tmp)
+   //     return;
+
+
+    __SERIAL_END__BLOCK__(blocking)
+
+    cb_receive = callback;
+    
+    xTaskCreate(
+                 &(SerialPort_Win32::interrupt),
+                 "SerialReceive",
+                 4096,
+                 this,
+                 tskIDLE_PRIORITY
+                 ,&task_interrupt);
+    
+
+}
+
+void SerialPort_Win32::interrupt(void *pvParameters)
+{
+    SerialPort_Win32 *port = (SerialPort_Win32*)pvParameters;
+    WINBOOL state = false;
+    for(;;)
+    {
+        DWORD mask = 0;
+
+        __SERIAL_START__BLOCK__(port->blocking);
+
+        ResetEvent(port->_Event_Wait.hEvent);
+
+        __SERIAL_END__BLOCK__(port->blocking);
+
+        state = WaitCommEvent(port->_SerialPort,&mask,&(port->_Event_Wait));
+        
+        if (!state) {
+                DWORD e = GetLastError();
+                if (e != ERROR_IO_PENDING) {
+                    printf("WaitCommEvent error=%lu\n", e);
+                    break;
+                }
+                // รอให้ event มา
+                DWORD w = WaitForSingleObject(port->_Event_Wait.hEvent, INFINITE);
+                if (w != WAIT_OBJECT_0) break;
+
+                DWORD dummy = 0;
+                if (!GetOverlappedResult(port->_SerialPort, &port->_Event_Wait, &dummy, FALSE)) {
+                    printf("GetOverlappedResult(wait) err=%lu\n", GetLastError());
+                    break;
+                }
+            }
+
+        if (mask & EV_ERR) 
+        {
+            DWORD errs = 0;
+            COMSTAT st = {0};
+
+            __SERIAL_START__BLOCK__(port->blocking);
+            ClearCommError(port->_SerialPort, &errs, &st);
+            __SERIAL_END__BLOCK__(port->blocking);
+            //printf("Serial ERR flags=0x%08lx\n", errs);
+        }
+
+        if ((mask & EV_RXCHAR) && (port->cb_receive != nullptr)) 
+        {
+            //readAvailable(); // มีข้อมูลเข้าแล้ว อ่านออก
+            port->cb_receive();
+        }
+        
+    }
+    vTaskDelay(50/portTICK_PERIOD_MS);
+}
+
+#endif
+
 
 bool SerialPort_Win32::begin(const char *PortName, int Baudrate, int Option)
 {
@@ -49,10 +146,10 @@ bool SerialPort_Win32::begin(const char *PortName, int Baudrate, int Option)
         SerialPath,
         GENERIC_READ | GENERIC_WRITE,
         0,
-        NULL,
+        nullptr,
         OPEN_EXISTING,
-        0,
-        NULL);
+        FILE_ATTRIBUTE_NORMAL | FILE_FLAG_OVERLAPPED,
+        nullptr);
     
         
         __SERIAL_END__BLOCK__(blocking)
@@ -189,9 +286,15 @@ bool SerialPort_Win32::end()
         return false;    
     
     
-        __SERIAL_START__BLOCK__(blocking)
-    
+    __SERIAL_START__BLOCK__(blocking)
 
+#ifdef _INCLUDE_FREERTOS_
+    if(task_interrupt != nullptr)
+        vTaskDelete(task_interrupt);
+#endif
+
+    CloseHandle(_Event_Interrupt.hEvent);
+    CloseHandle(_Event_Wait.hEvent);
     CloseHandle(_SerialPort);
 
     _SerialPort = nullptr; 
@@ -262,7 +365,7 @@ size_t SerialPort_Win32::write(uint8_t data)
         __SERIAL_START__BLOCK__(blocking)
     
 
-    WriteFile(_SerialPort, &data,1, &bytesWritten, NULL);
+    WriteFile(_SerialPort, &data,1, &bytesWritten, nullptr);
 
     
         __SERIAL_END__BLOCK__(blocking);
@@ -284,7 +387,7 @@ size_t SerialPort_Win32::write(uint8_t *data, size_t size)
         __SERIAL_START__BLOCK__(blocking)
     
 
-    WriteFile(_SerialPort, data,size, &bytesWrite, NULL);
+    WriteFile(_SerialPort, data,size, &bytesWrite, nullptr);
 
     
         __SERIAL_END__BLOCK__(blocking)
@@ -314,7 +417,7 @@ size_t SerialPort_Win32::read(uint8_t *data, size_t size)
                 data,
                 size,
                 &bytesRead, 
-                NULL
+                nullptr
             );
                   
     

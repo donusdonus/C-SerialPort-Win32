@@ -1,7 +1,4 @@
 C:/Users/ToonA/C-SerialPort-Win32/build/CMakeFiles/app.dir
-C:/Users/ToonA/C-SerialPort-Win32/build/CMakeFiles/analyze-serial-tidy.dir
-C:/Users/ToonA/C-SerialPort-Win32/build/CMakeFiles/analyze-serial-cppcheck.dir
-C:/Users/ToonA/C-SerialPort-Win32/build/CMakeFiles/analyze-serial.dir
 C:/Users/ToonA/C-SerialPort-Win32/build/CMakeFiles/edit_cache.dir
 C:/Users/ToonA/C-SerialPort-Win32/build/CMakeFiles/rebuild_cache.dir
 C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-build/CMakeFiles/freertos_kernel.dir

@@ -77,9 +77,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/app.dir/DependInfo.cmake"
-  "CMakeFiles/analyze-serial-tidy.dir/DependInfo.cmake"
-  "CMakeFiles/analyze-serial-cppcheck.dir/DependInfo.cmake"
-  "CMakeFiles/analyze-serial.dir/DependInfo.cmake"
   "_deps/freertos-build/CMakeFiles/freertos_kernel.dir/DependInfo.cmake"
   "_deps/freertos-build/portable/CMakeFiles/freertos_kernel_port.dir/DependInfo.cmake"
   "lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/DependInfo.cmake"

@@ -129,45 +129,6 @@ app/fast:
 .PHONY : app/fast
 
 #=============================================================================
-# Target rules for targets named analyze-serial-tidy
-
-# Build rule for target.
-analyze-serial-tidy: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 analyze-serial-tidy
-.PHONY : analyze-serial-tidy
-
-# fast build rule for target.
-analyze-serial-tidy/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\analyze-serial-tidy.dir\build.make CMakeFiles/analyze-serial-tidy.dir/build
-.PHONY : analyze-serial-tidy/fast
-
-#=============================================================================
-# Target rules for targets named analyze-serial-cppcheck
-
-# Build rule for target.
-analyze-serial-cppcheck: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 analyze-serial-cppcheck
-.PHONY : analyze-serial-cppcheck
-
-# fast build rule for target.
-analyze-serial-cppcheck/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\analyze-serial-cppcheck.dir\build.make CMakeFiles/analyze-serial-cppcheck.dir/build
-.PHONY : analyze-serial-cppcheck/fast
-
-#=============================================================================
-# Target rules for targets named analyze-serial
-
-# Build rule for target.
-analyze-serial: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 analyze-serial
-.PHONY : analyze-serial
-
-# fast build rule for target.
-analyze-serial/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\analyze-serial.dir\build.make CMakeFiles/analyze-serial.dir/build
-.PHONY : analyze-serial/fast
-
-#=============================================================================
 # Target rules for targets named freertos_kernel
 
 # Build rule for target.
@@ -406,9 +367,6 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... analyze-serial
-	@echo ... analyze-serial-cppcheck
-	@echo ... analyze-serial-tidy
 	@echo ... SerialPort_Win32
 	@echo ... app
 	@echo ... freertos_kernel

@@ -24,8 +24,8 @@
 #define __SERIAL_START__BLOCK__(semaphr) if(xSemaphoreTake(semaphr,__SERIAL_MAXTIME_BLOCKING__) == pdTRUE){ 
 #define __SERIAL_END__BLOCK__(semaphr) xSemaphoreGive(semaphr);}
 #else 
-#define __SERIAL_START__BLOCK__
-#define __SERIAL_END__BLOCK__ 
+#define __SERIAL_START__BLOCK__(semaphr)
+#define __SERIAL_END__BLOCK__(semaphr) 
 #endif
 
 #define __SERIAL_PATH_BUFFER_SIZE 32
@@ -75,12 +75,19 @@ public:
     void SetTimeout(int TimeoutInterval,int TimeoutMultiplier,int TimeoutConstant);
     int GetError() { return GetLastError();} 
 
+#ifdef _INCLUDE_FREERTOS_
+    void onReceive(void (*callback)(void));
+#endif 
+
 private:
     
     /******* SerialPort Parameter */
     HANDLE _SerialPort = nullptr;
     DCB _SerialOption = {0};
     COMMTIMEOUTS _SerialTimeout = {0};
+    OVERLAPPED _Event_Wait = {0};
+    OVERLAPPED _Event_Interrupt = {0};
+    
 
     bool tmp = false;
     char SerialPath[__SERIAL_PATH_BUFFER_SIZE];
@@ -89,7 +96,13 @@ private:
     int Config(int Baudrate,uint8_t DataBits,uint8_t StopBits,uint8_t ParityBit);
     bool Ready();
 
+
+ 
+ 
 #ifdef _INCLUDE_FREERTOS_
+    void (*cb_receive)(void) = nullptr;
+    TaskHandle_t task_interrupt = nullptr;
+    static void interrupt(void *pvParameters);
     xSemaphoreHandle blocking = xSemaphoreCreateMutex();
 #endif
     

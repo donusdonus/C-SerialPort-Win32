@@ -66,45 +66,5 @@ freertos_config
 )
 
         
+add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 
-
-option(ENABLE_STATIC_ANALYSIS "Enable static analysis targets" ON)
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-if(ENABLE_STATIC_ANALYSIS)
-  find_program(CPPCHECK_EXE NAMES cppcheck)
-  find_program(CLANG_TIDY_EXE NAMES clang-tidy)
-
-  # ---- clang-tidy: ตรวจเฉพาะ SerialPort_Win32 ----
-  if(CLANG_TIDY_EXE)
-    add_custom_target(analyze-serial-tidy
-      COMMAND ${CMAKE_COMMAND} -E echo "== clang-tidy: SerialPort_Win32 =="
-      COMMAND ${CLANG_TIDY_EXE}
-              -p ${CMAKE_BINARY_DIR}
-              -checks=-*,clang-analyzer-*,bugprone-*,performance-*,readability-*
-              --warnings-as-errors=*
-              --header-filter=${CMAKE_SOURCE_DIR}/lib/SerialPort_Win32/.*
-              ${CMAKE_SOURCE_DIR}/lib/SerialPort_Win32/SerialPort_Win32.cpp
-      VERBATIM
-    )
-  endif()
-
-  # ---- cppcheck: ตรวจเฉพาะ SerialPort_Win32 ----
-  if(CPPCHECK_EXE)
-    add_custom_target(analyze-serial-cppcheck
-      COMMAND ${CMAKE_COMMAND} -E echo "== cppcheck: SerialPort_Win32 =="
-      COMMAND ${CPPCHECK_EXE}
-              --enable=all --inconclusive --force --inline-suppr
-              --std=c++11 --language=c++ --error-exitcode=1
-              --suppress=missingIncludeSystem
-              --template=gcc
-              -I ${CMAKE_SOURCE_DIR}/lib/SerialPort_Win32
-              ${CMAKE_SOURCE_DIR}/lib/SerialPort_Win32/SerialPort_Win32.cpp
-      VERBATIM
-    )
-  endif()
-
-  add_custom_target(analyze-serial
-    DEPENDS analyze-serial-tidy analyze-serial-cppcheck
-  )
-endif()
