@@ -30,8 +30,7 @@
 #define __SERIAL_END__BLOCK__ 
 #endif
 
-#define __Serial_RX_BUFFER_SIZE 128
-#define __Serial_Path 32
+#define __SERIAL_PATH_BUFFER_SIZE 32
 
 #define SERIAL_5N1 0x00
 #define SERIAL_6N1 0x02
@@ -80,17 +79,18 @@ public:
 
 
 private:
-    bool tmp = false;
-    uint8_t BufferReader[__Serial_RX_BUFFER_SIZE];
-    char SerialPath[__Serial_Path];
-
-    int Config(int Baudrate,uint8_t DataBits,uint8_t StopBits,uint8_t ParityBit);
-    bool Ready();
-
+    
     /******* SerialPort Parameter */
     HANDLE _SerialPort = nullptr;
     DCB _SerialOption = {0};
     COMMTIMEOUTS _SerialTimeout = {0};
+
+    bool tmp = false;
+    char SerialPath[__SERIAL_PATH_BUFFER_SIZE];
+
+    void Init();
+    int Config(int Baudrate,uint8_t DataBits,uint8_t StopBits,uint8_t ParityBit);
+    bool Ready();
 
 #ifdef _INCLUDE_FREERTOS_
     xSemaphoreHandle blocking = xSemaphoreCreateMutex();

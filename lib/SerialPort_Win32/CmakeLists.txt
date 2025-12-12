@@ -1,16 +1,12 @@
-#add_library(SerialPort_Win32 STATIC SerialPort_Win32.cpp)
-#target_include_directories(SerialPort_Win32 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-
 add_library(SerialPort_Win32 STATIC SerialPort_Win32.cpp)
-
-# include path ของ serial lib เอง
 target_include_directories(SerialPort_Win32 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
 
 # include FreeRTOS
 target_include_directories(SerialPort_Win32 PRIVATE
     ${freertos_SOURCE_DIR}/include
         ${freertos_SOURCE_DIR}/portable/MSVC-MingW
-        ${PROJECT_SOURCE_DIR}           # ที่เก็บ FreeRTOSConfig.h (ของคุณอยู่ root)
+        ${PROJECT_SOURCE_DIR}          
 )
 
 # link FreeRTOS source files เฉพาะที่ต้องใช้
@@ -27,14 +23,9 @@ target_sources(SerialPort_Win32 PRIVATE
     #${freertos_SOURCE_DIR}/portable/ThirdParty/GCC/Posix/port.c
 )
 
-# เพื่อให้ lib เห็น config header
-target_compile_definitions(SerialPort_Win32 PRIVATE
-    projCOVERAGE_TEST=0
-    FREERTOS_USE_POSIX_PORT=1
-)
-
 message(STATUS "----------- SerialPort_Win32 ---------------")
 message(STATUS "Path Project = ${PROJECT_SOURCE_DIR}")
 message(STATUS "Path CMake = ${CMAKE_CURRENT_SOURCE_DIR}")
 message(STATUS "Path FreeRTOS = ${freertos_SOURCE_DIR}")
 message(STATUS "--------------------------------------------")
+

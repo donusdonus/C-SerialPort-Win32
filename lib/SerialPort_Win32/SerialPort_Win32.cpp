@@ -1,13 +1,32 @@
 
 #include "SerialPort_Win32.h"
 
-SerialPort_Win32::SerialPort_Win32(){}
+SerialPort_Win32::SerialPort_Win32(){
+    Init();
+}
+
 SerialPort_Win32::~SerialPort_Win32(){
     end();
 }
 
+void SerialPort_Win32::Init(){
+
+    tmp = Ready();
+    if(tmp)
+        end();
+
+    _SerialPort = nullptr;
+    _SerialOption = {0};
+    _SerialTimeout = {0};
+
+    memset(SerialPath,0x0,__SERIAL_PATH_BUFFER_SIZE);
+   
+}
+
+
 bool SerialPort_Win32::begin(const char *PortName, int Baudrate, int Option)
 {
+    Init();
 
     /* SerialPort Object is not release */
     tmp = Ready();

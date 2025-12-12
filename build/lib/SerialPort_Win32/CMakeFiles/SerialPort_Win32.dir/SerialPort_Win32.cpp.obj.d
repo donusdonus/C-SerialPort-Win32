@@ -8,7 +8,7 @@ lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/SerialPort_Win32.cpp.obj: \
  C:/msys64/mingw32/include/sdks/_mingw_ddk.h \
  C:/msys64/mingw32/include/sdkddkver.h C:/msys64/mingw32/include/excpt.h \
  C:/msys64/mingw32/include/crtdefs.h C:/msys64/mingw32/include/corecrt.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/stdarg.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/stdarg.h \
  C:/msys64/mingw32/include/stdarg.h \
  C:/msys64/mingw32/include/_mingw_stdarg.h \
  C:/msys64/mingw32/include/windef.h \
@@ -26,23 +26,23 @@ lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/SerialPort_Win32.cpp.obj: \
  C:/msys64/mingw32/include/basetsd.h C:/msys64/mingw32/include/guiddef.h \
  C:/msys64/mingw32/include/string.h \
  C:/msys64/mingw32/include/sec_api/string_s.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/emmintrin.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/xmmintrin.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/mmintrin.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/mm_malloc.h \
- C:/msys64/mingw32/include/c++/15.1.0/stdlib.h \
- C:/msys64/mingw32/include/c++/15.1.0/cstdlib \
- C:/msys64/mingw32/include/c++/15.1.0/i686-w64-mingw32/bits/c++config.h \
- C:/msys64/mingw32/include/c++/15.1.0/i686-w64-mingw32/bits/os_defines.h \
- C:/msys64/mingw32/include/c++/15.1.0/i686-w64-mingw32/bits/cpu_defines.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/emmintrin.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/xmmintrin.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/mmintrin.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/mm_malloc.h \
+ C:/msys64/mingw32/include/c++/15.2.0/stdlib.h \
+ C:/msys64/mingw32/include/c++/15.2.0/cstdlib \
+ C:/msys64/mingw32/include/c++/15.2.0/i686-w64-mingw32/bits/c++config.h \
+ C:/msys64/mingw32/include/c++/15.2.0/i686-w64-mingw32/bits/os_defines.h \
+ C:/msys64/mingw32/include/c++/15.2.0/i686-w64-mingw32/bits/cpu_defines.h \
  C:/msys64/mingw32/include/stdlib.h \
  C:/msys64/mingw32/include/corecrt_wstdlib.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/limits.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/syslimits.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/limits.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/syslimits.h \
  C:/msys64/mingw32/include/limits.h \
  C:/msys64/mingw32/include/sec_api/stdlib_s.h \
  C:/msys64/mingw32/include/malloc.h \
- C:/msys64/mingw32/include/c++/15.1.0/bits/std_abs.h \
+ C:/msys64/mingw32/include/c++/15.2.0/bits/std_abs.h \
  C:/msys64/mingw32/include/errno.h C:/msys64/mingw32/include/pshpack4.h \
  C:/msys64/mingw32/include/poppack.h C:/msys64/mingw32/include/pshpack4.h \
  C:/msys64/mingw32/include/pshpack2.h C:/msys64/mingw32/include/poppack.h \
@@ -145,9 +145,9 @@ lib/SerialPort_Win32/CMakeFiles/SerialPort_Win32.dir/SerialPort_Win32.cpp.obj: \
  C:/msys64/mingw32/include/_mingw_off_t.h \
  C:/msys64/mingw32/include/swprintf.inl \
  C:/msys64/mingw32/include/sec_api/stdio_s.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/stdint.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/stdint.h \
  C:/msys64/mingw32/include/stdint.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/stddef.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/stddef.h \
  C:/msys64/mingw32/include/stddef.h C:/msys64/mingw32/include/control.h \
  C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/FreeRTOS.h \
  C:/Users/ToonA/C-SerialPort-Win32/FreeRTOSConfig.h \

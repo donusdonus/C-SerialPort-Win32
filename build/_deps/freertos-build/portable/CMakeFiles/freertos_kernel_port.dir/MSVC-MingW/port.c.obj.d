@@ -11,9 +11,9 @@ _deps/freertos-build/portable/CMakeFiles/freertos_kernel_port.dir/MSVC-MingW/por
  C:/msys64/mingw32/include/swprintf.inl \
  C:/msys64/mingw32/include/sec_api/stdio_s.h \
  C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/FreeRTOS.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/stddef.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/stddef.h \
  C:/msys64/mingw32/include/stddef.h C:/msys64/mingw32/include/crtdefs.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/stdint.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/stdint.h \
  C:/msys64/mingw32/include/stdint.h \
  C:/Users/ToonA/C-SerialPort-Win32/FreeRTOSConfig.h \
  C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/projdefs.h \
@@ -25,7 +25,7 @@ _deps/freertos-build/portable/CMakeFiles/freertos_kernel_port.dir/MSVC-MingW/por
  C:/Users/ToonA/C-SerialPort-Win32/build/_deps/freertos-src/include/list.h \
  C:/msys64/mingw32/include/winsock.h C:/msys64/mingw32/include/windows.h \
  C:/msys64/mingw32/include/sdkddkver.h C:/msys64/mingw32/include/excpt.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/stdarg.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/stdarg.h \
  C:/msys64/mingw32/include/stdarg.h \
  C:/msys64/mingw32/include/_mingw_stdarg.h \
  C:/msys64/mingw32/include/windef.h \
@@ -43,14 +43,14 @@ _deps/freertos-build/portable/CMakeFiles/freertos_kernel_port.dir/MSVC-MingW/por
  C:/msys64/mingw32/include/basetsd.h C:/msys64/mingw32/include/guiddef.h \
  C:/msys64/mingw32/include/string.h \
  C:/msys64/mingw32/include/sec_api/string_s.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/emmintrin.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/xmmintrin.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/mmintrin.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/mm_malloc.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/emmintrin.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/xmmintrin.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/mmintrin.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/mm_malloc.h \
  C:/msys64/mingw32/include/stdlib.h \
  C:/msys64/mingw32/include/corecrt_wstdlib.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/limits.h \
- C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.1.0/include/syslimits.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/limits.h \
+ C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/15.2.0/include/syslimits.h \
  C:/msys64/mingw32/include/limits.h \
  C:/msys64/mingw32/include/sec_api/stdlib_s.h \
  C:/msys64/mingw32/include/malloc.h C:/msys64/mingw32/include/errno.h \
